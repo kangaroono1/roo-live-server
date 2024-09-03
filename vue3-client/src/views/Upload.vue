@@ -13,7 +13,7 @@
             <el-button type="primary">点击上传（自动）</el-button>
             <template #tip>
             <div class="el-upload__tip">
-                <h3>【Tip：未做传输限制，要提高单次文件传输大小，请提高tomcat单次接受请求大小，测试1G可行（目前限制为60MB），比分片传快很多】</h3>
+                <h3>【Tip：未做传输限制，要提高单次文件传输大小，请提高tomcat单次接受请求大小，测试1G可行，比分片传快很多】</h3>
                 <h3>限传文件{{ numOfLimit }}个, 磁盘剩余空间：{{ showFreeSpace }}</h3>
             </div>
             <button @click="pingServer">刷新</button>

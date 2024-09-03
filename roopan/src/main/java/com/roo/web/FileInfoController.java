@@ -1,5 +1,6 @@
 package com.roo.web;
 
+import com.roo.entity.constants.Constants;
 import org.junit.platform.commons.util.StringUtils;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -32,7 +33,7 @@ public class FileInfoController {
     /**
      * 上传磁盘根目录
      */
-    private static final String UPLOAD_PATH = "H:\\Uploads";
+    private static final String UPLOAD_PATH = Constants.UPLOAD_PATH;
 
     @GetMapping("ping")
     public HashMap<String, Object> testPing() {
@@ -51,7 +52,8 @@ public class FileInfoController {
 
     /**
      * 文件整个上传（非分块）（TODO：响应信息补充）
-     * @param file
+     *
+     * @param file  文件
      * @return
      */
     @PostMapping("/upload")
@@ -156,7 +158,7 @@ public class FileInfoController {
     /**
      * 展示磁盘根目录
      */
-    private static final String MEDIA_PATH = "H:\\Movie";
+    private static final String MEDIA_PATH = Constants.MEDIA_PATH;
 
 
     /**
@@ -249,14 +251,15 @@ public class FileInfoController {
 
     /** ======================================== 3) 获取文件流 ======================================================= **/
 
-    private static final int BUFFER_SIZE = 1024 * 1024 * 50; // 1MB * 50 = 50 MB
-    private static final int CONTENT_LENGTH = 1024 * 1024 * 100; // 100 MB
+    private static final int BUFFER_SIZE = Constants.BUFFER_SIZE; // 1MB * 50 = 50 MB
+    private static final int CONTENT_LENGTH = Constants.CONTENT_LENGTH; // 100 MB
 
 
     /**
      * 获取视频流（TODO：实现定位不明确，目前是该接口提供的是获取视频流和文件流的能力，待拆分）
-     * @param request
-     * @param response
+     *
+     * @param request   请求
+     * @param response  响应
      * @throws IOException
      */
     @GetMapping("/getFileStream/**")
